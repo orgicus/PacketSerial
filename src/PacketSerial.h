@@ -315,6 +315,17 @@ public:
         _onPacketFunctionWithSender = onPacketFunctionWithSender;
     }
 
+    /// \brief getter for the private stream (!warning, can be nullptr)
+    ///
+    /// This can be useful when integrating with other libraries (such as [OSC](https://github.com/CNMAT/OSC)) 
+    /// which need access direct access to a Print/Stream to write to via OSCMessage or OSCBundle `send()`
+    ///
+    ///
+    
+    Stream* getStream(){
+        return _stream;
+    }    
+
 private:
     PacketSerial_(const PacketSerial_&);
     PacketSerial_& operator = (const PacketSerial_&);
